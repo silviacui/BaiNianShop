@@ -1,3 +1,9 @@
+# For testing Pycharm
+.pytest_cache
+.idea
+__pycache__/
+report
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
