@@ -8,12 +8,12 @@ def init_driver():
 
     # 设备参数
     desired_caps['platformName'] = 'Android'
-    desired_caps['platformVersion'] = '5.1'
-    desired_caps['deviceName'] = '192.168.56.101:5555'
+    desired_caps['platformVersion'] = '6.0'
+    desired_caps['deviceName'] = 'MDQNW17331025978'
 
     # app参数
-    desired_caps['appPackage'] = 'cn.goapk.market'
-    desired_caps['appActivity'] = 'com.anzhi.market.ui.MainActivity'
+    desired_caps['appPackage'] = 'com.yunmall.lc'
+    desired_caps['appActivity'] = 'com.yunmall.ymctoc.ui.activity.MainActivity'
 
     # 解决输入中文
     desired_caps['unicodeKeyboard'] = True
