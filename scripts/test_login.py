@@ -15,4 +15,6 @@ class TestLogin:
         # 点击我的页面的”已有账号，去登录“
         self.page.mine.click_login_button()
         # 登录页面输入账号和密码，并点击登录按钮
-        self.page.login.input_username_passord_to_login("13554958766", "123000")
+        self.page.login.input_username("13554958766")
+        self.page.login.input_password("123000")
+        self.page.login.click_login()
