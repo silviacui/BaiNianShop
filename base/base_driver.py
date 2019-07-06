@@ -19,4 +19,7 @@ def init_driver():
     desired_caps['unicodeKeyboard'] = True
     desired_caps['resetKeyboard'] = True
 
+    # Toast
+    desired_caps['automationName'] = 'Uiautomator2'
+
     return webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)

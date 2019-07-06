@@ -90,3 +90,12 @@ class BaseAction:
         value = res_value.rstrip(" and ")
         value = xpath_start + value + xpath_end
         return value
+
+    def find_toast(self, message, timeout=3):
+        """
+        # message: 预期要获取的toast的部分消息
+        """
+        message = "//*[contains(@text,'" + message + "')]"  # 使用包含的方式定位
+
+        element = WebDriverWait(self.driver, timeout, 0.1).until(lambda x: x.find_element(By.XPATH, message))
+        return element.text

@@ -15,6 +15,12 @@ class TestLogin:
         # 点击我的页面的”已有账号，去登录“
         self.page.mine.click_login_button()
         # 登录页面输入账号和密码，并点击登录按钮
-        self.page.login.input_username("13554958766")
+        self.page.login.input_username("135 54958766")
         self.page.login.input_password("123000")
         self.page.login.click_login()
+        # 判断toast
+        # if "此用户不存在" == self.page.login.find_toast("此用户不存在"):
+        #     assert True
+        # else:
+        #     assert False
+        assert "此用户不存在" == self.page.login.find_toast("此用户不存在")
