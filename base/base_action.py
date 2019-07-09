@@ -25,17 +25,17 @@ class BaseAction:
         """
         self.find_element(feature).send_keys(content)
 
-    def find_element(self, feature):
+    def find_element(self, feature, timeout=5.0, poll=1.0):
 
         by = feature[0]
         value = feature[1]
         # 如果传过来的参数"feature[0]"等于By.XPATH,就执行下面两行代码，如果不是，就直接跳过这两行
         if by == By.XPATH:
             value = self.__make_xpath(value)
-        wait = WebDriverWait(self.driver, 5, 1)
+        wait = WebDriverWait(self.driver, timeout, poll)
         return wait.until(lambda x: x.find_element(by, value))
 
-    def find_elements(self, feature):
+    def find_elements(self, feature, timeout=5.0, poll=1.0):
 
         by = feature[0]
         value = feature[1]
@@ -43,7 +43,7 @@ class BaseAction:
         # 如果传过来的参数"feature[0]"等于By.XPATH,就执行下面两行代码，如果不是，就直接跳过这两行
         if by == By.XPATH:
             value = self.__make_xpath(value)
-        wait = WebDriverWait(self.driver, 5, 1)
+        wait = WebDriverWait(self.driver, timeout, poll)
         return wait.until(lambda x: x.find_element(by, value))
 
     @staticmethod
@@ -96,6 +96,19 @@ class BaseAction:
         # message: 预期要获取的toast的部分消息
         """
         message = "//*[contains(@text,'" + message + "')]"  # 使用包含的方式定位
+        return self.find_element((By.XPATH, message), timeout=timeout, poll=0.1).text
 
-        element = WebDriverWait(self.driver, timeout, 0.1).until(lambda x: x.find_element(By.XPATH, message))
-        return element.text
+        # element = WebDriverWait(self.driver, timeout, 0.1).until(lambda x: x.find_element(By.XPATH, message))
+        # return element.text
+
+    def if_toast_exist(self, message):
+        """
+        判断toast消息是否存在
+        :param message:
+        :return:
+        """
+        try:
+            self.find_toast(message)
+            return True
+        except Exception:
+            return False

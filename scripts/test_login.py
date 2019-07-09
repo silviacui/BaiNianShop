@@ -23,4 +23,4 @@ class TestLogin:
         #     assert True
         # else:
         #     assert False
-        assert "此用户不存在" == self.page.login.find_toast("此用户不存在")
+        assert self.page.login.if_toast_exist("此用户不存在")
