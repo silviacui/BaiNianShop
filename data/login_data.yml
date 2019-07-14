@@ -7,23 +7,23 @@ test_login:
     username: "Silvia0504"
     password: "123001"
     expect: "此用户不存在"
-  test_login003:
-    username: "135 54958766"
-    password: "123001"
-    expect: "此用户不存在"
-  test_login004:
-    username: "1355495876"
-    password: "123000"
-    expect: "此用户不存在"
-  test_login005:
-    username: "135549587665"
-    password: "123000"
-    expect: "此用户不存在"
-  test_login006:
-    username: "13554958765"
-    password: "123000"
-    expect: "此用户不存在"
-  test_login007:
-    username: "Daisy07"
-    password: "123000"
-    expect: "此用户不存在"
+#  test_login003:
+#    username: "135 54958766"
+#    password: "123001"
+#    expect: "此用户不存在"
+#  test_login004:
+#    username: "1355495876"
+#    password: "123000"
+#    expect: "此用户不存在"
+#  test_login005:
+#    username: "135549587665"
+#    password: "123000"
+#    expect: "此用户不存在"
+#  test_login006:
+#    username: "13554958765"
+#    password: "123000"
+#    expect: "此用户不存在"
+#  test_login007:
+#    username: "Daisy07"
+#    password: "123000"
+#    expect: "此用户不存在"
