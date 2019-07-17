@@ -46,10 +46,10 @@ test_login_success:
 #    password: "123000"
 #  test_login_success004:
 #    username: "Daisy0702"
+#    password: "123000"uccess005:
+#    username: "Daisy0702 "
 #    password: "123000"
-  test_login_success005:
-    username: "Daisy0702 "
-    password: "123000"
+#  test_login_s
 #  test_login_success006:
 #    username: " Daisy0702"
 #    password: "123000"
