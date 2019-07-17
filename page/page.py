@@ -2,6 +2,7 @@
 from .home_page import HomePage
 from .mine_page import MinePage
 from .login_page import LoginPage
+from .logined_page import LoginedPage
 
 
 class Page():
@@ -20,5 +21,9 @@ class Page():
     @property
     def login(self):
         return LoginPage(self.driver)
+
+    @property
+    def logined(self):
+        return LoginedPage(self.driver)
 
 

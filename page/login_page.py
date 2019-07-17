@@ -34,3 +34,4 @@ class LoginPage(BaseAction):
         :return:
         """
         return self.is_feature_enabled(self.login_button)
+

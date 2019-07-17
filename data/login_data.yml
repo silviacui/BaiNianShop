@@ -27,10 +27,29 @@
 #    username: "Daisy07"
 #    password: "123000"
 #    expect: "此用户不存在"
-test_login_with_blank_info:
-  test_login_with_blank_info001:
-    username: ""
-    password: "123000"
+#test_login_with_blank_info:
+#  test_login_with_blank_info001:
+#    username: ""
+#    password: "123000"
 #  test_login_with_blank_info002:
 #    username: "13554958766"
 #    password: ""
+test_login_success:
+#  test_login_success001:
+#    username: "13554958766"
+#    password: "123000"
+  test_login_success002:
+    username: "13554958766 "
+    password: "123000"
+#  test_login_success003:
+#    username: " 13554958766"
+#    password: "123000"
+#  test_login_success004:
+#    username: "Daisy0702"
+#    password: "123000"
+  test_login_success005:
+    username: "Daisy0702 "
+    password: "123000"
+#  test_login_success006:
+#    username: " Daisy0702"
+#    password: "123000"
