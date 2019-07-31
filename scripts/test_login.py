@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from base import init_driver
 from page import Page
 import pytest
@@ -61,19 +62,26 @@ class TestLogin:
         #     assert True
 
     # login场景三：登录成功的场景
-    @pytest.mark.parametrize("args", data_analyze("test_login_success"))
-    def test_login_success(self, args):
+    # @pytest.mark.parametrize("args", data_analyze("test_login_success"))
+    # def test_login_success(self, args):
+    #
+    #     username = args["username"]
+    #     password = args["password"]
+    #
+    #     # 点击主页的我图标
+    #     self.page.home.click_mine_icon()
+    #     # 点击我的页面的”已有账号，去登录“
+    #     self.page.mine.click_login_button()
+    #     # 登录页面输入账号和密码，并点击登录按钮
+    #     self.page.login.input_username(username)
+    #     self.page.login.input_password(password)
+    #     self.page.login.click_login()
+    #     # 在已登录页面，定位人头图像，并判断该按钮是否enabled
+    #     assert self.page.logined.if_my_avatar_icon_exist() and self.page.logined.is_my_avatar_icon_enabled()
 
-        username = args["username"]
-        password = args["password"]
-
+    def test_if_login(self):
         # 点击主页的我图标
         self.page.home.click_mine_icon()
-        # 点击我的页面的”已有账号，去登录“
-        self.page.mine.click_login_button()
-        # 登录页面输入账号和密码，并点击登录按钮
-        self.page.login.input_username(username)
-        self.page.login.input_password(password)
-        self.page.login.click_login()
-        # 在已登录页面，定位人头图像，并判断该按钮是否enabled
-        assert self.page.logined.if_my_avatar_icon_exist() and self.page.logined.is_my_avatar_icon_enabled()
+        # 判断是否登录成功
+        assert self.page.logined.if_login()
+
