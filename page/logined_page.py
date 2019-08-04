@@ -30,6 +30,7 @@ class LoginedPage(BaseAction):
     # 判断是否登录
     def if_login(self):
         # 写法二：
+        # 判断人头图标存不存在，并把结果存到if_login
         if_login = self.if_my_avatar_icon_exist()
         self.click_settings_button()
         return if_login
