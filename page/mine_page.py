@@ -24,6 +24,7 @@ class MinePage(BaseAction):
         """
         return self.if_feature_exist(self.my_avatar_icon)
 
+    # 登录之后的动作
     def is_my_avatar_icon_enabled(self):
         """
         判断人头图像是否enabled
@@ -31,6 +32,7 @@ class MinePage(BaseAction):
         """
         return self.is_feature_enabled(self.my_avatar_icon)
 
+    # 登录之后的动作
     def click_settings_button(self):
         self.click(self.settings_button)
 
@@ -39,7 +41,6 @@ class MinePage(BaseAction):
         # 写法二：
         # 判断人头图标存不存在，并把结果存到if_login
         if_login = self.if_my_avatar_icon_exist()
-        self.click_settings_button()
         return if_login
 
         # 写法一

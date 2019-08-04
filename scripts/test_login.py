@@ -79,9 +79,9 @@ class TestLogin:
     #     # 在已登录页面，定位人头图像，并判断该按钮是否enabled
     #     assert self.page.mine.if_my_avatar_icon_exist() and self.page.mine.is_my_avatar_icon_enabled()
 
-    def test_if_login(self):
-        # 点击主页的我图标
-        self.page.home.click_mine_icon()
-        # 判断是否登录成功
-        assert self.page.mine.if_login()
+    # def test_if_login(self):
+    #     # 点击主页的我图标
+    #     self.page.home.click_mine_icon()
+    #     # 判断是否登录成功
+    #     assert self.page.mine.if_login()
 
