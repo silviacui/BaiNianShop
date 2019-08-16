@@ -3,6 +3,7 @@ from .home_page import HomePage
 from .mine_page import MinePage
 from .login_page import LoginPage
 from .settings_page import SettingsPage
+from .about_bainian_page import AboutBainianPage
 
 
 class Page():
@@ -25,5 +26,9 @@ class Page():
     @property
     def settings(self):
         return SettingsPage(self.driver)
+
+    @property
+    def about_bainian(self):
+        return AboutBainianPage(self.driver)
 
 
