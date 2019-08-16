@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import  time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -44,7 +46,7 @@ class BaseAction:
         if by == By.XPATH:
             value = self.__make_xpath(value)
         wait = WebDriverWait(self.driver, timeout, poll)
-        return wait.until(lambda x: x.find_element(by, value))
+        return wait.until(lambda x: x.find_elements(by, value))
 
     @staticmethod
     def __make_xpath_condition(feature):

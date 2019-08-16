@@ -23,5 +23,8 @@ class TestAddress:
         self.page.mine.click_settings_button()
         time.sleep(1)
         # 设置页面，点击地址管理按钮
-        self.page.settings.click_manage_address_button()
-        time.sleep(1)
+        if self.page.settings.if_scroll_until_feature_found(self.page.settings.feature_list, "关于百年奥莱", "up"):
+            self.page.settings.click_about_bainian_button()
+            assert True
+        else:
+            assert False
