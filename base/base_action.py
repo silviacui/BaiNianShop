@@ -128,7 +128,7 @@ class BaseAction:
         except Exception:
             return False
 
-    def scroll_one_time(self, dir="up"):
+    def scroll_one_time(self, direction="up"):
 
         # 如果不等于滑动页面
         window_width = self.driver.get_window_size()["width"]
@@ -139,53 +139,43 @@ class BaseAction:
 
         start_x, start_y, end_x, end_y = 0, 0, 0, 0
 
-        if dir == "up" or dir == "down":
+        if direction == "up" or direction == "down":
             start_x = centre_x
             start_y = window_height * 0.75
             end_x = centre_x
             end_y = window_height * 0.25
 
-        elif dir == "left" or dir == "right":
+        elif direction == "left" or direction == "right":
             start_x = window_width * 0.75
             start_y = centre_y
             end_x = window_width * 0.25
             end_y = centre_y
 
         # 判断dir的参数值
-        if dir == "up" or dir == "left":
+        if direction == "up" or direction == "left":
             self.driver.swipe(start_x, start_y, end_x, end_y, 3000)
-        elif dir == "down" or dir == "left":
+        elif direction == "down" or direction == "left":
             self.driver.swipe(end_x, end_y, start_x, start_y, 3000)
         else:
             raise Exception("dir的参数只能是up/down/left/right")
 
-    def if_scroll_until_feature_found(self, feature, feature_text, dir):
+    def if_feature_exist_scroll_page(self, feature, direction):
         """
-        滑动当前页面，直到目标feature已经找到
-        :param feature: 定位元素的feature
-        :param feature_text: 定位元素的text
-        :param dir: 滑动页面的方向，只能输入参数up/down/left/right
-        :return:
-        """
-        old = ""
-        # 无限循环
+                滑动当前页面，直到目标feature已经找到
+                :param feature: 定位元素的feature
+                :param direction: 滑动页面的方向，只能输入参数up/down/left/right
+                :return:
+                """
+        record = ""
         while True:
-            new = ""
-            # 用find_elements定位到settings中所有的列表元素
-            eles = self.find_elements(feature)
-            # for循环取每个元素的text，判断是否等于“关于手机”，如果等于停止执行
-            for i in eles:
-                text = i.text
-                # 把每一轮定位到的所有元素的text拼接到new里面
-                new += text
-
-                if text == feature_text:
-                    return True
-
-            if  old == new:
+            # 如果record的上次记录的值等于当前页面源代码的值，那就说明已经滑到底了，返回false
+            if record == self.driver.page_source:
                 return False
+            # 如果他们的值不相等，则把当前源代码的值记录到record
             else:
-                old = new
-
-            # 如果new不等于old，则继续滑动
-            self.scroll_one_time(dir)
+                record = self.driver.page_source
+            try:
+                self.find_element(feature)
+                return True
+            except Exception:
+                self.scroll_one_time(direction)

@@ -24,7 +24,7 @@ class TestAppVersion:
         self.page.mine.click_settings_button()
         time.sleep(1)
         # 判断页面是否可以找到元素“关于百年里奥”，如果没有则滑动页面
-        if self.page.settings.if_scroll_until_feature_found(self.page.settings.feature_list, "关于百年奥莱", "up"):
+        if self.page.settings.if_feature_exist_scroll_page(self.page.settings.feature_list, "up"):
             # 如果找到，点击该按钮
             self.page.settings.click_about_bainian_button()
             app_version_text = self.page.about_bainian.get_app_version_text()
