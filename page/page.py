@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
-from .home_page import HomePage
-from .mine_page import MinePage
-from .login_page import LoginPage
-from .settings_page import SettingsPage
-from .about_bainian_page import AboutBainianPage
+from .home_page import *
+from .mine_page import *
+from .login_page import *
+from .settings_page import *
+from .about_bainian_page import *
+from .address_page import *
+from .add_address_page import *
+from .cities_page import *
 
 
 class Page():
@@ -30,5 +33,17 @@ class Page():
     @property
     def about_bainian(self):
         return AboutBainianPage(self.driver)
+
+    @property
+    def address(self):
+        return AddressPage(self.driver)
+
+    @property
+    def add_address(self):
+        return AddAddressPage(self.driver)
+
+    @property
+    def cities(self):
+        return CitiesPage(self.driver)
 
 
