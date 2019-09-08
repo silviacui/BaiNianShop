@@ -1,0 +1,59 @@
+#test_address_success:
+#  test_address_success001:
+#    name: "cu_"
+#    phone_number: "13554958766"
+#    detail_address: "4栋504"
+#  test_address_success002:
+#    name: "崔崔"
+#    phone_number: "13554958766"
+#    detail_address: "ssssssssss1234567890bbbbbbbbbbffffffffff1234567890xxxxxxxxxx"
+#  test_address_success003:
+#    name: "崔s@-"
+#    phone_number: "13554958766"
+#    detail_address: "明都雅苑1609,-#"
+test_address_fail:
+  test_address_fail001:
+    name: ""
+    phone_number: "13554958766"
+    detail_address: "Building No.4 Room 504,-#"
+    message: "收件人姓名2–15个字符"
+  test_address_fail002:
+    name: "崔"
+    phone_number: "13554958766"
+    detail_address: "4栋504"
+    message: "收货人姓名为2–20个字符"
+  test_address_fail003:
+    name: "cui#$12345678901"
+    phone_number: "13554958766"
+    detail_address: "4栋504"
+    message: "收件人错误，请输入2到15位字符"
+  test_address_fail004:
+    name: "迪丽热巴"
+    phone_number: ""
+    detail_address: "4栋504"
+    message: "11位手机号"
+  test_address_fail005:
+    name: "Silvia"
+    phone_number: "123456"
+    detail_address: "4栋504"
+    message: "11位手机号"
+  test_address_fail006:
+    name: "Silvia"
+    phone_number: "345@#$%&(-/"
+    detail_address: "4栋504"
+    message: "手机号错误，请输入11位数字"
+  test_address_fail007:
+    name: "Silvia"
+    phone_number: ",.]@#$%&(-/"
+    detail_address: "4栋504"
+    message: "手机号错误，请输入11位数字"
+  test_address_fail008:
+    name: "Silvia"
+    phone_number: "13554958766"
+    detail_address: ""
+    message: "请输入详细地址"
+  test_address_fail009:
+    name: "Silvia"
+    phone_number: "13667178128"
+    detail_address: "ffff"
+    message: "详细地址为5到60个字符"
