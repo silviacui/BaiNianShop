@@ -35,14 +35,14 @@ class LoginPage(BaseAction):
         """
         return self.is_feature_enabled(self.login_button)
 
-    def login(self):
+    def login(self, username="13430733473", password="yq123000"):
         """
         只要是未登录，我们就进到登录页面，执行这个函数
         :return:
         """
         # 因为我们是要登录结果一定成功，所以这里的参数可以写固定的
         # 如果这里参数不能固定的话，就应该写到test_xxx的脚本里面
-        self.input_username("13554958766")
-        self.input_password("123000")
+        self.input_username(username)
+        self.input_password(password)
         self.click_login()
 

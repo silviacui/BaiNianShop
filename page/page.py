@@ -7,6 +7,7 @@ from .about_bainian_page import *
 from .address_page import *
 from .add_address_page import *
 from .cities_page import *
+from .change_password_page import *
 
 
 class Page():
@@ -45,5 +46,9 @@ class Page():
     @property
     def cities(self):
         return CitiesPage(self.driver)
+
+    @property
+    def change_password(self):
+        return ChangePasswordPage(self.driver)
 
 
